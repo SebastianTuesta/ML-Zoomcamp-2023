@@ -1,0 +1,26 @@
+# Q1
+cd ../05-deployment
+docker build -t zoomcamp-model:hw10 .
+docker run -d -p 1234:1234 zoomcamp-model:hw10
+
+cd 10-kubernetes
+python q6_test.py
+
+# Q2
+kind --version -- 0.20.0
+
+# Q3
+kubectl cluster-info
+kubectl get all
+
+# Q4
+ kind load docker-image
+
+# Q5
+kubectl apply -f deployment.yaml
+kubectl get all
+
+# Q6
+kubectl apply -f service.yaml
+python q6_test.py
+kubectl autoscale deployment credit --name credit-hpa --cpu-percent=20 --min=1 --max=3
